@@ -1,8 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:to_do_app/core/utils/app_color.dart';
+import 'dart:developer';
 
+import 'package:flutter/material.dart';
+import 'package:to_do_app/constants.dart';
+import 'package:to_do_app/core/database/cache.dart';
+import 'package:to_do_app/core/services/service_locator.dart';
 import 'package:to_do_app/core/utils/app_strings.dart';
-import 'package:to_do_app/core/utils/text_styles.dart';
 import 'package:to_do_app/core/widgets/custom_contener_app.dart';
 import 'package:to_do_app/features/auth/data/model/on_boarding_model.dart';
 import 'package:to_do_app/features/auth/presentation/screens/on_boarding_screen/widgets/on_boarding_detuils.dart';
@@ -35,12 +37,9 @@ class CstomPageView extends StatelessWidget {
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      textAlign: TextAlign.left,
-                      AppStrings.skip,
-                      style: Theme.of(context)
-                          .textTheme
-                          .displaySmall
-                    ),
+                        textAlign: TextAlign.left,
+                        AppStrings.skip,
+                        style: Theme.of(context).textTheme.displaySmall),
                   ),
                 ),
               ),
@@ -59,12 +58,8 @@ class CstomPageView extends StatelessWidget {
                             duration: const Duration(milliseconds: 500),
                             curve: Curves.easeInOut);
                       },
-                      child: Text(
-                        AppStrings.back,
-                        style: Theme.of(context)
-                            .textTheme
-                            .displaySmall
-                      ),
+                      child: Text(AppStrings.back,
+                          style: Theme.of(context).textTheme.displaySmall),
                     ),
                   ),
                   const Spacer(),
@@ -82,8 +77,15 @@ class CstomPageView extends StatelessWidget {
                           width: 151,
                           text: AppStrings.getStarted,
                           onTap: () {
-                            Navigator.pushReplacementNamed(
-                                context, HomeScreen.routeName);
+                            log(getIt<CacheHelper>()
+                                .getData(key: onBoardingKey)
+                                .toString());
+                            getIt<CacheHelper>()
+                                .saveData(key: onBoardingKey, value: true)
+                                .then((value) {
+                              Navigator.pushReplacementNamed(
+                                  context, HomeScreen.routeName);
+                            });
                           },
                         ),
                 ],
