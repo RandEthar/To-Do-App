@@ -2,9 +2,9 @@ class AppStrings {
   static const String appName = "UpTodo";
 
   // Navigation
-  static const String next = "Next";
-  static const String back = "Back";
-  static const String skip = "Skip";
+  static const String next = "NEXT";
+  static const String back = "BACK";
+  static const String skip = "SKIP";
   static const String getStarted = "GET STARTED";
 
   // Onboarding

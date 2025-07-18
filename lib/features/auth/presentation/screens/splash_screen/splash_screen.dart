@@ -30,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor.background,
+   
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -41,7 +41,9 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             Text(
               "UpTodo",
-              style: TextStyles.bold40.copyWith(color: AppColor.white),
+              style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                fontSize: 40
+              ),
             )
           ],
         ),

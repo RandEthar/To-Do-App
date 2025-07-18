@@ -8,10 +8,14 @@ abstract class TextStyles {
     fontWeight: FontWeight.w700,
     fontSize: 40,
   );
+    static final TextStyle bold32 = GoogleFonts.lato(
+    fontWeight: FontWeight.w700,
+    fontSize: 32,
+  );
   
-     static final TextStyle medium20 = GoogleFonts.lato(
-    fontWeight: FontWeight.w500,
-    fontSize: 20,
+     static final TextStyle regular16 = GoogleFonts.lato(
+    fontWeight: FontWeight.w400,
+    fontSize: 16,
   ); 
     static final TextStyle medium16 = GoogleFonts.lato(
     fontWeight: FontWeight.w500,
@@ -45,10 +49,7 @@ abstract class TextStyles {
     fontWeight: FontWeight.w400,
     fontSize: 14,
   );
-   static final TextStyle regular16 = GoogleFonts.lato(
-    fontWeight: FontWeight.w400,
-    fontSize: 16,
-  );
+
     static final TextStyle regular12 = GoogleFonts.lato(
     fontWeight: FontWeight.w400,
     fontSize: 12,
