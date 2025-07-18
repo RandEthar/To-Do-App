@@ -1,9 +1,8 @@
-import 'package:date_picker_timeline/date_picker_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:to_do_app/core/utils/app_color.dart';
 import 'package:to_do_app/features/task/presentation/screens/home_screen/widgets/custom_date_picker.dart';
-import 'package:to_do_app/features/task/presentation/screens/home_screen/widgets/no_task_widget.dart';
+import 'package:to_do_app/features/task/presentation/screens/home_screen/widgets/tasks_item_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -27,7 +26,7 @@ class HomeScreen extends StatelessWidget {
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(left: 24, right: 32),
+          padding: const EdgeInsets.only(left: 24, right:24),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -49,8 +48,10 @@ class HomeScreen extends StatelessWidget {
               ),
               const SizedBox(height: 10),
           const  CustomDatePicker(),
-           const SizedBox(height: 11),
-          Center(child: const NoTaskWidget())
+          //  const SizedBox(height: 11),
+          // Center(child: const NoTaskWidget())
+         const SizedBox(height: 24),
+         const  TasksItemWidget ()
 
             ],
           ),

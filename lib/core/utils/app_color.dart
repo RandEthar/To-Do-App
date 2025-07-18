@@ -18,6 +18,7 @@ static const Color darkGray = Color(0xff1D1D1D);
 static const Color mediumDarkGray = Color(0xff424242);  
 static const Color lightGray = Color(0xffAFAFAF);
 static const Color purpleNavy= Color(0xff242969);
+static const Color gray200 = Color(0xffC4C4C4);
 
 
 

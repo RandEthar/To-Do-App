@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:to_do_app/core/utils/app_color.dart';
 
-import 'package:to_do_app/core/utils/text_styles.dart';
 import 'package:to_do_app/features/auth/data/model/on_boarding_model.dart';
 
 import 'package:to_do_app/features/auth/presentation/screens/on_boarding_screen/widgets/smooth_page_indicator_widget.dart';
