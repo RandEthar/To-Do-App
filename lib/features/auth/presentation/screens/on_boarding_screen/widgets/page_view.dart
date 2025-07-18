@@ -8,7 +8,7 @@ import 'package:to_do_app/core/utils/app_strings.dart';
 import 'package:to_do_app/core/widgets/custom_contener_app.dart';
 import 'package:to_do_app/features/auth/data/model/on_boarding_model.dart';
 import 'package:to_do_app/features/auth/presentation/screens/on_boarding_screen/widgets/on_boarding_detuils.dart';
-import 'package:to_do_app/features/task/presentation/screens/home_screen.dart';
+import 'package:to_do_app/features/task/presentation/screens/home_screen/home_screen.dart';
 
 class CstomPageView extends StatelessWidget {
   const CstomPageView({
