@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:to_do_app/core/utils/app_images.dart';
 import 'package:to_do_app/features/task/presentation/screens/add_tasks_screen/widgets/add_task_component.dart';
 
-class StartAndEndTask extends StatelessWidget {
+class StartAndEndTask extends StatefulWidget {
   const StartAndEndTask({
     super.key,
     required this.titleController,
@@ -13,18 +13,40 @@ class StartAndEndTask extends StatelessWidget {
   final TextEditingController titleController;
 
   @override
+  State<StartAndEndTask> createState() => _StartAndEndTaskState();
+}
+
+class _StartAndEndTaskState extends State<StartAndEndTask> {
+  TimeOfDay startTimeTask = TimeOfDay.fromDateTime(DateTime.now());
+  TimeOfDay endTimeTask = TimeOfDay.fromDateTime(DateTime.now());
+
+  String formatTimeOfDay(TimeOfDay tod) {
+    final now = DateTime.now();
+    final dt = DateTime(now.year, now.month, now.day, tod.hour, tod.minute);
+    return DateFormat("hh:mm a").format(dt);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Expanded(
           child: AddTaskComponent(
             readOnly: true,
-            controller: titleController,
+            controller: widget.titleController,
             text: "Start Time",
-            hintText: DateFormat("hh:mm a").format(DateTime.now()),
+            hintText: formatTimeOfDay(startTimeTask),
             suffixIcon: GestureDetector(
-              onTap:() {
-                showTimePicker(context: context, initialTime:TimeOfDay.fromDateTime(DateTime.now()));
+              onTap: () async {
+                TimeOfDay? selectedTime = await showTimePicker(
+                  context: context,
+                  initialTime: startTimeTask,
+                );
+                if (selectedTime != null) {
+                  setState(() {
+                    startTimeTask = selectedTime;
+                  });
+                }
               },
               child: SvgPicture.asset(
                 Assets.assetsImagesTimer,
@@ -33,18 +55,24 @@ class StartAndEndTask extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(
-          width: 27,
-        ),
+        const SizedBox(width: 27),
         Expanded(
           child: AddTaskComponent(
-             readOnly: true,
-            controller: titleController,
+            readOnly: true,
+            controller: widget.titleController,
             text: "End Time",
-            hintText: DateFormat("hh:mm a").format(DateTime.now()),
+            hintText: formatTimeOfDay(endTimeTask),
             suffixIcon: GestureDetector(
-                  onTap:() {
-           showTimePicker(context: context, initialTime:TimeOfDay.fromDateTime(DateTime.now()));
+              onTap: () async {
+                TimeOfDay? selectedTime = await showTimePicker(
+                  context: context,
+                  initialTime: endTimeTask,
+                );
+                if (selectedTime != null) {
+                  setState(() {
+                    endTimeTask = selectedTime;
+                  });
+                }
               },
               child: SvgPicture.asset(
                 Assets.assetsImagesTimer,
